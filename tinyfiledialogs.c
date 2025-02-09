@@ -668,12 +668,11 @@ char * tinyfd_utf8toMbcs(char const * aUtf8string)
 
 char * tinyfd_utf16to8(wchar_t const * aUtf16string)
 {
-		static char * lUtf8string = NULL;
-		int lSize;
+	static char * lUtf8string = NULL;
+	int lSize;
 
-		free(lUtf8string);
-		if (!aUtf16string) { lUtf8string = NULL; return NULL; }
-		lSize = sizeUtf8(aUtf16string);
+	if (!aUtf16string) { lUtf8string = NULL; return NULL; }
+	lSize = sizeUtf8(aUtf16string);
 	if (lSize)
 	{
 		lUtf8string = (char*) malloc(lSize);
